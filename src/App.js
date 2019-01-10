@@ -95,7 +95,7 @@ class App extends Component {
     e.preventDefault();
     let result = [];
     if(this.state.animals.length < 20){
-        result = [{name: 'add'}, {name: 'more'}, {name: 'animals'}]
+        alert('Add more animals first')
     } else {
       
       for(let i = 0; i < 3; i++){
@@ -104,17 +104,16 @@ class App extends Component {
           temp = this.state.animals[Math.floor(Math.random() * 20)]
         }
         result.push(temp)
-      }    
+      }
+      this.setState(prevState => ({
+        homunculusAnimals: [...result]
+      }))    
     }
-    this.setState(prevState => ({
-      homunculusAnimals: [...result]
-    }))
-    console.log(this.state.homunculusAnimals);
   }
 
   removeAnimal = (e) => {
     this.setState({
-      animals: [...this.state.animals].filter(x => x.name !== e.target.name)
+      animals: this.state.animals.filter(x => x.name !== e.target.name)
     })
   }
 
