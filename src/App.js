@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-
+import { GlobalStyle } from './components/styles';
 import AnimalList from './components/AnimalList';
 import AnimalForm from './components/AnimalForm';
 import Header from './components/Header';
 import Homunculus from './components/Homunculus';
-
-import './App.css';
-import './components/Animals.css';
 
 const initAnimals = [
   {name: 'Tiger', 
@@ -120,6 +117,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <GlobalStyle />
         <Header />
         <AnimalList animals={this.state.animals} 
         removeAnimal={this.removeAnimal}
